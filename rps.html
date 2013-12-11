@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rock - Paper - Scissors | Powered by Leap Motion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/bootswatch.min.css">
+      <style>
+      html, body { width:100%; height:100%; margin: 0; padding: 0}
+      
+      #wrapper {
+        width: auto;
+        margin: 0 auto;
+        margin-top: 70px;
+        text-align: center;
+        font-size: 60px;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      .half {
+        width: 50%;
+        margin-top: 100px;
+        float: left;
+      }
+      #disp {
+        font-weight: bold;
+        font-size: 100px;
+      }
+      </style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="" class="navbar-brand">Rock Paper Scissors</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://js.leapmotion.com" target="_blank">Built With LeapJS</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>    
+    
+<div id="wrapper">
+    <div id="disp"></div>
+    <img id="img-disp" src="" />
+  </div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Development leapjs -->
+    <!--<script src="leap.js"></script>-->
+    <!-- Production leapjs -->
+    <script src="//js.leapmotion.com/0.3.0-beta2/leap.min.js"></script>
+    <script>
+    // Get display element
+    var displayElem = document.getElementById("disp");
+    var imageSrc = document.getElementById("img-disp"); 
+        
+    Leap.loop(function(obj) {
+        // Count number of hands
+        var hands = obj.hands.length;
+        // Count number of fingers
+        var fingers = obj.pointables.length;
+        
+        if( hands == 1 ){
+          
+          if(fingers == 2)
+          {
+            displayElem.innerHTML = "Rock!";
+            imageSrc.src="images/rock.jpg";
+          }
+          
+          if(fingers == 0)
+          {
+            displayElem.innerHTML = "Paper!";
+            imageSrc.src="images/paper.jpg";
+          }
+          
+          if(fingers > 4)
+          {
+            displayElem.innerHTML = "Scissors!";
+            imageSrc.src="images/scissors.jpg";
+          }
+        }
+        else if( hands == 0 ){
+          displayElem.innerHTML = "";
+          imageSrc.src="";
+        }
+        else{
+          displayElem.innerHTML = "";
+          imageSrc.src="images/awkward.png";
+        }
+      
+    });
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

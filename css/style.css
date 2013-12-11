@@ -1,0 +1,118 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+.bbplayer {
+  font: bold 16px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #474747;
+}
+
+.bb-play {
+  display: inline-block;
+  vertical-align: middle;
+  height: 45px;
+  width:  45px;
+  border: 6px solid #505050;
+  border-radius: 50%; 
+  background: transparent; 
+  background-image: url('../images/play.png');
+  background-repeat: no-repeat;
+  background-position: 7px center;
+  cursor: pointer;
+}
+
+.bb-playing {
+  vertical-align: middle;
+  background-image: url('../images/pause.png');
+  background-position: center center;
+}
+
+.bb-forward {
+  vertical-align: middle;
+  display: inline-block;
+  height: 32px;
+  width:  32px;
+  background: transparent;
+  background-image: url('../images/forward.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.bb-rewind {
+  vertical-align: middle;
+  display: inline-block;
+  height: 32px;
+  width:  32px;
+  background: transparent;
+  background-image: url('../images/rewind.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.bb-trackTime {
+  vertical-align: middle;
+  line-height: 32px;
+  display: inline-block;
+  height: 32px;
+}
+
+.bb-trackLength {
+  vertical-align: middle;
+  line-height: 32px;
+  display: inline-block;
+  height: 32px;
+}
+
+.bb-trackTitle {
+  vertical-align: middle;
+  line-height: 32px;
+  display: inline-block;
+  height: 32px;
+}
+
+.bb-debug {
+  height:29em;
+  width: auto;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: auto;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.bb-label {
+  font-size: 14px/1.5;
+  font-weight: 300;
+  margin: 10px;
+}
+
+#wrap {
+  width: 600px;
+  margin: 0 auto;
+}
+.half {
+  width: 50%;
+  margin-top: 100px;
+  float: left;
+}
+#hands,
+#fingers {
+  font-weight: bold;
+  font-size: 200px;
+}
+.progress {
+  text-align: center;
+}
+.panel {
+  margin-top: 9px;
+}
+#volume-bar {
+  margin-top: 10px;
+}
+
+#alert-holder{
+    position:absolute;
+    top:200px;
+    right:100px;
+}

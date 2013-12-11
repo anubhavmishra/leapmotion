@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML5 Audio Player | Powered by Leap Motion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/bootswatch.min.css">
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="" class="navbar-brand">Leap Motion Audio Player</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a><div id="socket-status"></div></a>
+            </li>
+            <li class="dropdown">
+               <a><div id="device-status"></div></a>
+            </li>
+            <li class="dropdown">
+               <a><div id="focus"></div></a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://js.leapmotion.com" target="_blank">Built With LeapJS</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-10">
+            <h1> </h1>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="bbplayer">
+                <span id="prev" class="bb-rewind"></span><span class="bb-play"></span><span class="bb-forward" id="next"></span>
+                <span class="bb-trackTime">--:--</span> /
+                <span class="bb-trackLength">--:--</span>
+                <span class="bb-trackTitle">&nbsp;</span>
+                <audio id="audio">
+                  <!-- Add your source here audio here -->
+                  <!-- "media" folder by default --> 
+                  <source src="media/example-track1.mp3" type="audio/mpeg"></source>
+                  <source src="media/example-track1.ogg" type="audio/ogg"></source>
+                  <source src="media/example-track2.mp3" type="audio/mpeg"></source>
+                  <source src="media/example-track2.ogg" type="audio/ogg"></source>
+                 Audio Not Available :(
+                </audio>
+                <br>
+              </div>
+            </div>
+         </div>
+      </div>
+          <div class="col-lg-2">
+            <h5>Volume</h5>
+                <div id="volume-bar" class="progress">
+                  <div class="progress-bar"></div>
+                </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h2>HTML5 Audio Player Controls</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Headings -->
+
+        <div class="row">
+          <div class="col-lg-8">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Controller Gesture</th>
+                    <th>Audio Player</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Screen Tap</td>
+                    <td>Play Song</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Key Tap</td>
+                    <td>Pause Song</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Swipe Right</td>
+                    <td>Next Song</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Swipe Left</td>
+                    <td>Previous Song</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Circle (1-2 times)</td>
+                    <td>20% Volume</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Circle (3 times)</td>
+                    <td>50% Volume</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Circle (4 times)</td>
+                    <td>80% Volume</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Circle (5+ times)</td>
+                    <td>100% Volume</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Swipe Up</td>
+                    <td>Mute</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+          </div>
+          
+          <div class="col-lg-4">
+            <h4>Console:</h4>
+            <div id="debug" class="bb-debug well"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="alert-holder"></div>
+      
+
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            
+
+            <p>Made by: <a href="http://anubhavmishra.com">Anubhav Mishra</a> & Ryan Fier. Supervisor: Dr. Kin Fun LI.</p>
+            <p>UVic Department of Electrical and Computer Engineering.</p>
+
+          </div>
+        </div>
+        
+      </footer>
+    
+
+    </div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Development leapjs -->
+    <!--<script src="leap.js"></script>-->
+    <!-- Production leapjs -->
+    <script src="//js.leapmotion.com/0.3.0-beta2/leap.min.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
